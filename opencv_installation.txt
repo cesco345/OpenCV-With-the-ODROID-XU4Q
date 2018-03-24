@@ -40,11 +40,10 @@ if interested in Java and android apps then do the following steps:
 A lot of times java is present, but not configured. Just because you have the JDK does not mean you can use Java.
 
 firefox http://jdk.java.net/8/
-accept the license agreement, then you can download:
-wget https://download.java.net/java/jdk8u172/archive/b03/binaries/jdk-8u172-ea-bin-b03-linux-arm32-vfp-hflt-18_jan_2018.tar.gz
 
+accept the license agreement, then you can download:
 if you have a 32 bit system then do this one:
-wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm32-vfp-hflt.tar.gz
+wget https://download.java.net/java/jdk8u172/archive/b03/binaries/jdk-8u172-ea-bin-b03-linux-arm32-vfp-hflt-18_jan_2018.tar.gz
 
 if you have a 64 bit system then you do this one:
 wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm64-vfp-hflt.tar.gz
