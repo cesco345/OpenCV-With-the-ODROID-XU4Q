@@ -1,0 +1,87 @@
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get install build-essential cmake pkg-config nmap net-tools
+
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+$ sudo apt-get install libxvidcore-dev libx264-dev
+$ sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+$ sudo apt-get install libatlas-base-dev gfortran
+$ sudo apt-get install libgtk2.0-dev
+$ sudo apt-get install python2.7-dev python3-dev
+$ wget https://bootstrap.pypa.io/get-pip.py
+$ sudo python get-pip.py
+$ sudo pip install numpy scipy matplotlib jupyter sympy nose
+if interested in Java and android apps then do the following steps:
+==========================================================================================================================================
+A lot of times java is present, but not configured. Just because you have the JDK does not mean you can use Java.
+
+firefox http://jdk.java.net/8/
+accept the license agreement, then you can download:
+wget https://download.java.net/java/jdk8u172/archive/b03/binaries/jdk-8u172-ea-bin-b03-linux-arm32-vfp-hflt-18_jan_2018.tar.gz
+
+if you have a 32 bit system then do this one:
+$ wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm32-vfp-hflt.tar.gz
+
+if you have a 64 bit system then you do this one:
+$ wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm64-vfp-hflt.tar.gz
+
+$ tar xvfz jdk-8u33-linux-arm-vfp-hflt.gz
+$ mkdir /usr/lib/jvm
+$ mv jdk1.8.0_172 /usr/lib/jvm/
+$ export PATH=$PATH:/usr/lib/jvm/jdk1.8.0_172/bin
+$ update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_172/bin/javac 1
+$ update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_172/bin/java 1
+$ update-alternatives --config javac
+$ update-alternatives --config java
+
+--testing java:
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World");
+    }
+}
+
+
+
+
+
+
+
+=========================================================================================
+if you want to run headless, then run ifconfig in your odroid to find ip address
+ifconfig -a
+This is why you need net-tools
+
+ping  odroid@192.168.100.20
+
+-- 192.168.1.20 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29078ms
+rtt min/avg/max/mdev = 3.398/151.852/2138.388/465.393 ms, pipe 3
+
+
+--now we can use ssh to connect to the ipaddress:
+ssh odroid@192.168.100.20
+
+root@cescp:/home/cesco/github/android# ssh odroid@192.168.1.20
+The authenticity of host '192.168.1.20 (192.168.1.20)' can't be established.
+ECDSA key fingerprint is SHA256:BCB66+A/fD7BGFb6qXHGLkxQpgoprJpfODk4s0FJHFA.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.1.20' (ECDSA) to the list of known hosts.
+odroid@192.168.1.20's password: 
+
+
+
+
+
+$ cd ~
+$ wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.1.zip
+$ unzip opencv.zip
+$ cd opencv
+$ wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.1.zip
+$ unzip opencv_contrib.zip
+$ mkdir build
+$ cd build
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.1/modules -D BUILD_EXAMPLES=ON ..
+$ make -j4
+$ sudo make install
+$ sudo ldconfig
