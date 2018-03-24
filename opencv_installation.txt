@@ -15,7 +15,7 @@ if interested in Java and android apps then do the following steps:
 ==========================================================================================================================================
 A lot of times java is present, but not configured. Just because you have the JDK does not mean you can use Java.
 
-firefox http://jdk.java.net/8/
+$ firefox http://jdk.java.net/8/
 accept the license agreement, then you can download:
 wget https://download.java.net/java/jdk8u172/archive/b03/binaries/jdk-8u172-ea-bin-b03-linux-arm32-vfp-hflt-18_jan_2018.tar.gz
 
@@ -40,12 +40,6 @@ public class HelloWorld {
         System.out.println("Hello, World");
     }
 }
-
-
-
-
-
-
 
 =========================================================================================
 if you want to run headless, then run ifconfig in your odroid to find ip address
