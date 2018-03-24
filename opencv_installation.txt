@@ -1,3 +1,25 @@
+if you want to run headless, then run ifconfig in your odroid to find ip address
+ifconfig -a
+This is why you need net-tools
+
+ping  odroid@192.168.100.20
+
+-- 192.168.1.20 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29078ms
+rtt min/avg/max/mdev = 3.398/151.852/2138.388/465.393 ms, pipe 3
+
+
+--now we can use ssh to connect to the ipaddress:
+ssh odroid@192.168.100.20
+
+root@cescp:/home/cesco/github/android# ssh odroid@192.168.1.20
+The authenticity of host '192.168.1.20 (192.168.1.20)' can't be established.
+ECDSA key fingerprint is SHA256:BCB66+A/fD7BGFb6qXHGLkxQpgoprJpfODk4s0FJHFA.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.1.20' (ECDSA) to the list of known hosts.
+odroid@192.168.1.20's password: 
+
+============================================================================================================================
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install build-essential cmake pkg-config nmap net-tools
@@ -11,7 +33,6 @@ sudo apt-get install python2.7-dev python3-dev
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 sudo pip install numpy scipy matplotlib jupyter sympy nose
-
 
 
 if interested in Java and android apps then do the following steps:
@@ -45,29 +66,6 @@ public class HelloWorld {
 }
 
 =========================================================================================
-if you want to run headless, then run ifconfig in your odroid to find ip address
-ifconfig -a
-This is why you need net-tools
-
-ping  odroid@192.168.100.20
-
--- 192.168.1.20 ping statistics ---
-30 packets transmitted, 30 received, 0% packet loss, time 29078ms
-rtt min/avg/max/mdev = 3.398/151.852/2138.388/465.393 ms, pipe 3
-
-
---now we can use ssh to connect to the ipaddress:
-ssh odroid@192.168.100.20
-
-root@cescp:/home/cesco/github/android# ssh odroid@192.168.1.20
-The authenticity of host '192.168.1.20 (192.168.1.20)' can't be established.
-ECDSA key fingerprint is SHA256:BCB66+A/fD7BGFb6qXHGLkxQpgoprJpfODk4s0FJHFA.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '192.168.1.20' (ECDSA) to the list of known hosts.
-odroid@192.168.1.20's password: 
-
-
-
 
 
 $ cd ~
