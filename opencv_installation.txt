@@ -1,38 +1,41 @@
-$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install build-essential cmake pkg-config nmap net-tools
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential cmake pkg-config nmap net-tools
 
-$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-$ sudo apt-get install libxvidcore-dev libx264-dev
-$ sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
-$ sudo apt-get install libatlas-base-dev gfortran
-$ sudo apt-get install libgtk2.0-dev
-$ sudo apt-get install python2.7-dev python3-dev
-$ wget https://bootstrap.pypa.io/get-pip.py
-$ sudo python get-pip.py
-$ sudo pip install numpy scipy matplotlib jupyter sympy nose
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt-get install libxvidcore-dev libx264-dev
+sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+sudo apt-get install libatlas-base-dev gfortran
+sudo apt-get install libgtk2.0-dev
+sudo apt-get install python2.7-dev python3-dev
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo pip install numpy scipy matplotlib jupyter sympy nose
+
+
+
 if interested in Java and android apps then do the following steps:
 ==========================================================================================================================================
 A lot of times java is present, but not configured. Just because you have the JDK does not mean you can use Java.
 
-$ firefox http://jdk.java.net/8/
+firefox http://jdk.java.net/8/
 accept the license agreement, then you can download:
 wget https://download.java.net/java/jdk8u172/archive/b03/binaries/jdk-8u172-ea-bin-b03-linux-arm32-vfp-hflt-18_jan_2018.tar.gz
 
 if you have a 32 bit system then do this one:
-$ wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm32-vfp-hflt.tar.gz
+wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm32-vfp-hflt.tar.gz
 
 if you have a 64 bit system then you do this one:
-$ wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm64-vfp-hflt.tar.gz
+wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-arm64-vfp-hflt.tar.gz
 
-$ tar xvfz jdk-8u33-linux-arm-vfp-hflt.gz
-$ mkdir /usr/lib/jvm
-$ mv jdk1.8.0_172 /usr/lib/jvm/
-$ export PATH=$PATH:/usr/lib/jvm/jdk1.8.0_172/bin
-$ update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_172/bin/javac 1
-$ update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_172/bin/java 1
-$ update-alternatives --config javac
-$ update-alternatives --config java
+tar xvfz jdk-8u33-linux-arm-vfp-hflt.gz
+mkdir /usr/lib/jvm
+mv jdk1.8.0_172 /usr/lib/jvm/
+export PATH=$PATH:/usr/lib/jvm/jdk1.8.0_172/bin
+update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_172/bin/javac 1
+update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_172/bin/java 1
+update-alternatives --config javac
+update-alternatives --config java
 
 --testing java:
 public class HelloWorld {
