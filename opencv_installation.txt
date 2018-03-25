@@ -66,6 +66,51 @@ public class HelloWorld {
 
 =========================================================================================
 
+Downloading, installing, and building Leptonica and Tesseract
+
+first you need to find out the version of Ubuntu that you/ODROId is running: 
+odroid@odroid:~/tesseract/leptonica-1.74.4/build$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 16.04.4 LTS
+Release:    16.04
+Codename:   xenial
+
+Now you know that you are running: Ubuntu 16.04.4 LTS xenial
+
+sudo apt-get install g++ 
+sudo apt-get install autoconf automake libtool
+sudo apt-get install autoconf-archive
+sudo apt-get install pkg-config
+sudo apt-get install libpng-dev
+sudo apt-get install libjpeg8-dev
+sudo apt-get install libtiff5-dev
+sudo apt-get install zlib1g-dev
+sudo apt-get install xzgv
+
+#in order to install the training tools you need these libraries:
+sudo apt-get install libicu-dev
+sudo apt-get install libpango1.0-dev
+sudo apt-get install libcairo2-dev
+
+http://www.leptonica.org/
+wget http://www.leptonica.org/source/leptonica-1.74.4.tar.gz
+mkdir tesseract
+mv leptonica-1.7.4.tar ./tesseract
+cd tesseract
+gunzip leptonica-1.74.4.tar.gz
+tar -xvf leptonica-1.74.4.tar.gz
+mkdir build
+cd build
+../configure
+sudo make install
+make -j4 check
+
+
+
+
+
+
 
 $ cd ~
 $ wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.1.zip
