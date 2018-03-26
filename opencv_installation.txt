@@ -103,6 +103,7 @@ tar -xvf leptonica-1.74.4.tar.gz
 mkdir build
 cd build
 ../configure
+make
 sudo make install
 make -j4 check
 
