@@ -106,8 +106,23 @@ cd build
 sudo make install
 make -j4 check
 
+cd tesseract/
+wget https://github.com/tesseract-ocr/tesseract/archive/4.0.0-beta.1.tar.gz
+gunzip 4.0.0-beta.1.tar.gz 
+tar -xvf 4.0.0-beta.1.tar 
+rm 4.0.0-beta.1.tar 
+cd tesseract-4.0.0-beta.1/
 
-
+./autogen.sh
+LIBLEPT_HEADERSDIR=/usr/local/include/leptonica ./configure --prefix=/usr/local/ --with-extra-libraries=/usr/local/lib
+make
+sudo make install
+sudo ldconfig
+make training
+sudo make training-install
+mv eng.traineddata ./tessdata/
+cd tessdata/
+export TESSDATA_PREFIX=/home/odroid/tesseract/tesseract-4.0.0-beta.1/tessdata/
 
 
 
