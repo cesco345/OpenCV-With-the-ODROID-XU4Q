@@ -121,6 +121,7 @@ sudo make install
 sudo ldconfig
 make training
 sudo make training-install
+wget https://github.com/tesseract-ocr/tessdata/raw/4.00/eng.traineddata
 mv eng.traineddata ./tessdata/
 cd tessdata/
 export TESSDATA_PREFIX=/home/odroid/tesseract/tesseract-4.0.0-beta.1/tessdata/
