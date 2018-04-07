@@ -149,6 +149,11 @@ eng.ocrb.exp0.png
 eng.ocrb.exp1.png
 eng.ocrb.exp2.png
 
+create the box files
+run box_script.sh
+
+
+
 ==Getting a Text Box Editor==
 
 REQUIREMENTS
