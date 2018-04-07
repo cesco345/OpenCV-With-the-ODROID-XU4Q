@@ -191,6 +191,12 @@ Use train_script.sh
 Then we are going to extract the charset from the box files (the command creates a “unicharset” file).
 unicharset_extractor `wrap $N "eng.ocrb.exp" ".box"`
 
+Next we need to create a font_properties file.
+echo "ocrb 0 0 1 0 0" > font_properties # tell Tesseract informations about the font
+
+mftraining -F font_properties -U unicharset -O eng.unicharset `wrap $N "eng.ocrb.exp" ".tr"`
+cntraining `wrap $N "eng.ocrb.exp" ".tr"`
+
 $ cd ~
 $ wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.1.zip
 $ unzip opencv.zip
