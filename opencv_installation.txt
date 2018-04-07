@@ -126,6 +126,28 @@ mv eng.traineddata ./tessdata/
 cd tessdata/
 export TESSDATA_PREFIX=/home/odroid/tesseract/tesseract-4.0.0-beta.1/tessdata/
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The input files must be named accordingly to the Tesseract convention:
+[language name].[font name].exp[number].[file extension]
+
+Bug in Box Editor
+Current Behavior:
+
+Tesseract header files since commit da03e4e added the use of string in the unichar.h header file that is used during compilation by tesserocr. This causes the compilation of tesserocr to throw an error because the std library is not imported.
+
+In file included from tesserocr.cpp:484:0:
+/usr/local/include/tesseract/unichar.h:164:10: error: ‘string’ does not name a type
+static string UTF32ToUTF8(const std::vector<char32>& str32);
+          ^
+
+Changing static string UTF32ToUTF8(const std::vector<char32>& str32); to static std::string UTF32ToUTF8(const std::vector<char32>& str32); in /usr/local/include/tesseract/unichar.h:164 fixes the problem for me.
+
+I am aware that you do not provide support for product that aren't the command-line Tesseract but I thought you might want to know since it worked before the commit.
+
+eng.ocrb.exp0.png
+eng.ocrb.exp1.png
+eng.ocrb.exp2.png
 
 
 
