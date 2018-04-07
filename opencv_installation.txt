@@ -149,7 +149,47 @@ eng.ocrb.exp0.png
 eng.ocrb.exp1.png
 eng.ocrb.exp2.png
 
+==Getting a Text Box Editor==
 
+REQUIREMENTS
+============
+* QT4 (tested with QT-4.7.3, QT-4.8.2)
+* leptonica library
+* tesseract 3.01 or 3.02 build as library
+Obs.: In case you're compiling it with QT5 >= then you must to install libqt5svg5-dev/libqt5svg5-devel
+
+BUILDING
+========
+
+adjust location of leptonica and tesseract in qt-box-editor.pro
+qmake
+make
+
+BUILDING ON UBUNTU
+==================
+
+sudo apt-get install qt5-qmake
+sudo apt-get install qt5-default
+sudo apt-get install libqt5gui5
+sudo apt-get install qt5-doc
+sudo apt-get install libqt5svg5-dev
+sudo apt-get install libleptonica-dev
+
+qmake -qt=5
+make
+
+There may appear a bug during the compilation process, just go here on how to fix it, if you encounter it:
+https://github.com/zdenop/qt-box-editor/issues/61
+
+Use conversion_script.sh
+
+Remove old files
+rm pol.pffmtable pol.shapetable pol.traineddata pol.unicharset unicharset font_properties pol.inttemp pol.normproto *.tr *.txt
+
+Use train_script.sh
+
+Then we are going to extract the charset from the box files (the command creates a “unicharset” file).
+unicharset_extractor `wrap $N "eng.ocrb.exp" ".box"`
 
 $ cd ~
 $ wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.1.zip
